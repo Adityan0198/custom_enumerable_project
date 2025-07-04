@@ -32,6 +32,10 @@ module Enumerable
     end
     till_now
   end
+
+  def my_none?(&b)
+    !self.my_any?(&b)
+  end
 end
 
 # You will first have to define my_each
