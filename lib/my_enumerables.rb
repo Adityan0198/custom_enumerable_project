@@ -24,6 +24,14 @@ module Enumerable
     end
     till_now
   end
+
+  def my_any?
+    till_now = false
+    self.my_each do |elem|
+      till_now = till_now || yield(elem)
+    end
+    till_now
+  end
 end
 
 # You will first have to define my_each
