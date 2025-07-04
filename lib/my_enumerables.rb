@@ -16,6 +16,14 @@ module Enumerable
     end
     filtered
   end
+
+  def my_all?
+    till_now = true
+    self.my_each do |elem|
+      till_now = till_now && yield(elem)
+    end
+    till_now
+  end
 end
 
 # You will first have to define my_each
