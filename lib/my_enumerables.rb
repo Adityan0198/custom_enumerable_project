@@ -36,6 +36,16 @@ module Enumerable
   def my_none?(&b)
     !self.my_any?(&b)
   end
+
+  def my_count
+    c = 0
+    unless block_given?
+      self.my_each {c += 1}
+    else
+      self.my_each {|elem| c += 1 if yield(elem)}
+    end
+    c
+  end
 end
 
 # You will first have to define my_each
